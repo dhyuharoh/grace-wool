@@ -1,0 +1,266 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ""
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 8.8.8.8
+    - 1.0.0.1
+    - https://dns.google/dns-query
+  fallback:
+    - 1.1.1.1
+    - 8.8.4.4
+    - https://cloudflare-dns.com/dns-query
+    - 112.215.203.254
+  default-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 112.215.203.254
+proxies:
+  - name: apimidtrans_tls
+    server: api.midtrans.com
+    port: 443
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: api.midtrans.com
+    network: ws
+    ws-opts:
+      path: wss://api.midtrans.com/worryfree
+      headers:
+        Host: do-sg.a01.rexlo.me
+  - name: covid_tls
+    server: covid19.go.id
+    port: 443
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: covid19.go.id
+    network: ws
+    ws-opts:
+      path: wss://covid19.go.id/worryfree
+      headers:
+        Host: do-sg.a01.rexlo.me
+  - name: ilmupedia_notls
+    server: 104.16.85.20
+    port: 80
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: do-sg.a01.rexlo.me
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: do-sg.a01.rexlo.me
+  - name: ilmupedia_notls 2
+    server: 104.22.24.131
+    port: 80
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: do-sg.a01.rexlo.me
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: do-sg.a01.rexlo.me
+  - name: ilmupedia_tls
+    server: skillacademy.com
+    port: 443
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: skillacademy.com
+    network: ws
+    ws-opts:
+      path: wss://skillacademy.com/worryfree
+      headers:
+        Host: do-sg.a01.rexlo.me
+  - name: ilmupedia_tls 2
+    server: ruangguru.com
+    port: 443
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: ruangguru.com
+    network: ws
+    ws-opts:
+      path: wss://ruangguru.com/worryfree
+      headers:
+        Host: do-sg.a01.rexlo.me
+  - name: INDIHOME
+    server: do-sg.a01.rexlo.me
+    port: 80
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: false
+    udp: true
+    skip-cert-verify: true
+    servername: test.indihome.co.id-dns.whyssh.my.id
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: test.indihome.co.id-dns.whyssh.my.id
+  - name: line.me1
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: blog.clova.line.me
+    network: ws
+    ws-opts:
+      path: wss://blog.clova.line.me/worryfree
+      headers:
+        Host: do-sg.a01.rexlo.me
+  - name: line.me2
+    server: 104.17.2.81
+    port: 443
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: blog.clova.line.me
+    network: ws
+    ws-opts:
+      path: wss://blog.clova.line.me/worryfree
+      headers:
+        Host: do-sg.a01.rexlo.me
+  - name: opok_notls
+    server: do-sg.a01.rexlo.me
+    port: 80
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: tsel.me
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: tsel.me
+proxy-groups:
+  - name: FASTSSH-SSHKIT-HOWDY
+    type: select
+    proxies:
+      - apimidtrans_tls
+      - covid_tls
+      - ilmupedia_notls
+      - ilmupedia_notls 2
+      - ilmupedia_tls
+      - ilmupedia_tls 2
+      - INDIHOME
+      - line.me1
+      - line.me2
+      - opok_notls
+      - LOAD-BALANCE
+      - BEST-PING
+      - FALLBACK
+      - DIRECT
+  - name: LOAD-BALANCE
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://hi.bonds.id/ping
+    interval: 300
+    proxies:
+      - apimidtrans_tls
+      - covid_tls
+      - ilmupedia_notls
+      - ilmupedia_notls 2
+      - ilmupedia_tls
+      - ilmupedia_tls 2
+      - INDIHOME
+      - line.me1
+      - line.me2
+      - opok_notls
+  - name: BEST-PING
+    type: url-test
+    url: http://hi.bonds.id/ping
+    interval: 300
+    tolerance: 50
+    proxies:
+      - apimidtrans_tls
+      - covid_tls
+      - ilmupedia_notls
+      - ilmupedia_notls 2
+      - ilmupedia_tls
+      - ilmupedia_tls 2
+      - INDIHOME
+      - line.me1
+      - line.me2
+      - opok_notls
+  - name: FALLBACK
+    type: fallback
+    url: http://hi.bonds.id/ping
+    interval: 300
+    proxies:
+      - apimidtrans_tls
+      - covid_tls
+      - ilmupedia_notls
+      - ilmupedia_notls 2
+      - ilmupedia_tls
+      - ilmupedia_tls 2
+      - INDIHOME
+      - line.me1
+      - line.me2
+      - opok_notls
+rule-providers:
+  howdy:
+    type: http
+    behavior: domain
+    url: https://howdy.id/download/rules/clash.txt
+    path: /rule-provider_clash.yaml
+    interval: 86400
+  adblock:
+    type: http
+    behavior: classical
+    path: /adblock.yaml
+    url: https://raw.githubusercontent.com/dhyuharoh/grace-wool/main/adblock-v1.yaml
+rules:
+  - RULE-SET,howdy,REJECT
+  - RULE-SET,adblock,REJECT
+  - MATCH,FASTSSH-SSHKIT-HOWDY
