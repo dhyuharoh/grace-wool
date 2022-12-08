@@ -1,0 +1,121 @@
+proxies:
+###indihome
+
+  - name: Vless-INDI80
+    server: ikd.ptgn-vps.my.id
+    port: 80
+    type: vless
+    uuid: 6b2d4284-897b-4e68-a52c-4cc0fe6ae15b
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: test.indihome.co.id
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        Host: test.indihome.co.id
+    udp: true
+
+  - name: indihome-SG
+    server: 165.232.163.110
+    port: 80
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: none
+    tls: false
+    skip-cert-verify: true
+    servername: test.indihome.co.id
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: test.indihome.co.id
+    udp: true
+
+  - name: indihome-ID
+    server: ikd.ptgn-vps.my.id
+    port: 80
+    type: vmess
+    uuid: b575c47c-56fe-4a24-9b4e-4e0378819f2c
+    alterId: 0
+    cipher: none
+    tls: false
+    skip-cert-verify: true
+    servername: test.indihome.co.id
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: test.indihome.co.id
+    udp: true
+
+###tsel
+
+  - name: worryfree-SG
+    server: 165.232.163.110
+    port: 80
+    type: vmess
+    uuid: ad0188cf-9ef2-4378-b01f-8f920ea7403e
+    alterId: 0
+    cipher: none
+    tls: false
+    skip-cert-verify: true
+    servername: tsel.me
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: tsel.me
+    udp: true
+
+  - name: worryfree-HK
+    server: hk1.v2rayserv.com
+    port: 80
+    type: vmess
+    uuid: 09a17168-96e6-4bb0-99ea-f93aba291fb7
+    alterId: 0
+    cipher: none
+    tls: false
+    skip-cert-verify: true
+    servername: tsel.me
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: tsel.me
+    udp: true
+
+  - name: worryfree-ID
+    server: ikd.ptgn-vps.my.id
+    port: 80
+    type: vmess
+    uuid: b575c47c-56fe-4a24-9b4e-4e0378819f2c
+    alterId: 0
+    cipher: none
+    tls: false
+    skip-cert-verify: true
+    servername: tsel.me
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: tsel.me
+    udp: true
+
+  - name: vless-DO-tsel
+    server: do5.mfr.my.id
+    port: 80
+    type: vless
+    uuid: 5f722f67-e714-4165-94c1-1cd7dce0c70c
+    cipher: none
+    tls: false
+    skip-cert-verify: true
+    servername: tsel.me
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: tsel.me
+    udp: true
